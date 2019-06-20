@@ -1,6 +1,12 @@
-# Transient analysis of post-MPA dynamics
-# Uses a pre-determined age-structured matrix model
-# Inputs: natural mortality rate, M; pre-MPA fishing rate, F
+#' Transient analysis of post-MPA dynamics
+#' 
+#' Uses a pre-determined age-structured matrix model
+#' Inputs: natural mortality rate, M; pre-MPA fishing rate, F
+#' @param M natural mortality rate
+#' @param F fishing mortality rate
+#' @export
+#' @examples 
+#' MPA.transient
 
 MPA.transient <-function(M,F){
   
@@ -10,10 +16,11 @@ MPA.transient <-function(M,F){
   L0 <- create.Leslie(M,0)
   
   # Iterate model
-  N <- iterate.transient(LF,L0)
+  D <- iterate.transient(LF,L0)
   
   # Plot results
-  plot.results(N,L0)
+  plot.results(D,L0)
   
+  # Add in returning the period of oscillation
 
 } # end function

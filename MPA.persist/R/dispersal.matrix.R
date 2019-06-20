@@ -1,8 +1,11 @@
-# create connectivity matrix for MPA persistence calculations
-# Inputs:
-# X is the coastline vector (this will define the size of the matrix)
-# Mu is the mean dispersal kernel
-# Sig is the SD of dispersal kernel
+#' Create connectivity matrix for MPA persistence calculations
+#' 
+#' @param X the coastline vector (this will define the size of the matrix)
+#' @param Mu the mean dispersal kernel
+#' @param Sig the SD of dispersal kernel
+#' @export
+#' @example 
+#' dispersal.matrix
 
 dispersal.matrix <- function(X,Mu,Sig){
   

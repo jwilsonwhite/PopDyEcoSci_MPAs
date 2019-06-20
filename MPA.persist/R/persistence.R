@@ -1,9 +1,12 @@
-# Determine whether a coastline with MPAs is persistent or not
-# Inputs:
-# X = landscape
-# D = dispersal matrix
-# CRT = minimum value of FLEP for replacement
-# FLEP.out = value of FLEP in fished patches
+#' Determine whether a coastline with MPAs is persistent or not
+
+#' @param X landscape
+#' @param D dispersal matrix
+#' @param CRT minimum value of FLEP for replacement
+#' @param FLEP.out value of FLEP in fished patches
+#' @export
+#' @example 
+#' persistence
 
 persistence <- function(X,D,CRT,FLEP.out){
   

@@ -1,5 +1,4 @@
 #' Plot the results of the matrix model
-#' This will require ggplot2, gridExtra & reshape2...need to add that as a dependency
 #' 
 #' @param D results object from iterate.model
 #' @param L Leslie matrix

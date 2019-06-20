@@ -1,7 +1,10 @@
-# Assemble a coastline segment with repeating MPAs
-# Inputs:
-# Fr = fraction of coastline in reserve
-# Rw = reserve width (relative to dispersal distance)
+#' Assemble a coastline segment with repeating MPAs
+
+#' @param Fr fraction of coastline in reserve
+#' @param Rw reserve width (relative to dispersal distance)
+#' @export
+#' @example 
+#' assemble.coastline
 
 assemble.coastline <- function(Fr,Rw){
   

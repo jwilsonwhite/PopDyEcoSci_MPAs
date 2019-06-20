@@ -3,7 +3,7 @@
 \name{plot.results}
 \alias{plot.results}
 \title{Plot the results of the matrix model
-This will require ggplot2 & reshape2...need to add that as a dependency}
+This will require ggplot2, gridExtra & reshape2...need to add that as a dependency}
 \usage{
 \method{plot}{results}(D, L)
 }
@@ -14,7 +14,7 @@ This will require ggplot2 & reshape2...need to add that as a dependency}
 }
 \description{
 Plot the results of the matrix model
-This will require ggplot2 & reshape2...need to add that as a dependency
+This will require ggplot2, gridExtra & reshape2...need to add that as a dependency
 }
 \examples{
 plot.results

@@ -10,16 +10,16 @@
 
 MPA.transient <-function(M,F){
   
-  # Create Leslie matrix for fishing case
-  LF <- create.Leslie(M,F)
+  # Create Leslie matrix for nofishing & fishing case
+  Ls <- create.Leslie(M,F)
   # Create Leslie matrix for no-fishing case
   L0 <- create.Leslie(M,0)
   
   # Iterate model
-  D <- iterate.transient(LF,L0)
+  D <- iterate.transient(Ls$LF,Ls$L0)
   
   # Plot results
-  Result = plot.results(D,L0)
+  Result = plot.results(D,Ls$L0)
   
   return(Result)
   # Add in returning the period of oscillation

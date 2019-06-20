@@ -23,19 +23,28 @@ create.Leslie <- function(M,F){
   # fecundity vector
   L = Linf*(1 - exp(-k*(1:A))) # length
   B = L^3 # biomass
-  E = 2.195e-6*B*((1:A)>=Amat) # eggs
+ # E = 2.195e-6*B*((1:A)>=Amat) # eggs
+  E = B*((1:A)>=Amat) # eggs
   
-  # This is some code used to adjust the coefficient above to get lambda = 1.02...
-  # This is obviously a crude way to do it, but it's just a hard-coded example for students
+  # adjust the coefficient to get lambda = 1.02
   L1 = cbind(Surv,(rep(0,A-1)))
   L1 = rbind(E,L1)
-  max(abs(eigen(L1)$values))
+  o = suppressWarnings(optim(1e-6,optim.Leslie,L=L1,Target=1.02,method='Nelder-Mead'))
+  # now get correct matrix:
+  L0  = cbind(Surv,(rep(0,A-1)))
+  L0 = rbind(E*o$par,L0)
   
-  # Now return the actual matrix:
+  #max(abs(eigen(L0)$values))
+  
+  
+  # Now return the fished matrix matrix:
   LF = cbind(SurvF,(rep(0,A-1)))
-  LF = rbind(E,LF)
+  LF = rbind(E*o$par,LF)
   
-  return(LF)
+  return(list(L0=L0,LF=LF))
   
   
 } # end function
+
+
+

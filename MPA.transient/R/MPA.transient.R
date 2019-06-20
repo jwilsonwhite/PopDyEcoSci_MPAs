@@ -19,8 +19,9 @@ MPA.transient <-function(M,F){
   D <- iterate.transient(LF,L0)
   
   # Plot results
-  plot.results(D,L0)
+  Result = plot.results(D,L0)
   
+  return(Result)
   # Add in returning the period of oscillation
 
 } # end function

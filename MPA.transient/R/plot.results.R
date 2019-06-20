@@ -35,6 +35,17 @@ plot.results <- function(D,L){
   Circ = data.frame(x=x,y=y)
   Circ=Circ[order(Circ$x),]
   
+  # Period of cycles:
+  Angle = acos(Re(E[2])/abs(E[2]))
+  Period = 2*pi/Angle
+  
+  # Deviation from SAD:
+  V1 = abs(eigen(L)$vectors[,1])
+  VF = abs(D$N[,1])
+  Dot = sum(V1*VF) # dot product
+  Norm1 = sqrt( sum( V1^2 ) )
+  Norm2 = sqrt( sum( VF^2 ) )
+  Dev = acos( Dot/ (Norm1 * Norm2) )/(2*pi)*360
   
   
   
@@ -71,4 +82,5 @@ plot.results <- function(D,L){
   # add in returning the period (2*pi/Theta)
   ggarrange(Trend,Ages,Growth,Complex,nrow=2, ncol = 2)
   
+  return(list(Period=Period,Dev=Dev))
 } # end function
